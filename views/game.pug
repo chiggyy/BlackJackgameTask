@@ -1,0 +1,38 @@
+head
+  title Blackjack
+body
+  div.dealer
+    div
+      h1 Dealer
+    div.hand
+      h3 Hand:
+      - for (let i = handDealer.length - 1; i >= 0; i--)
+        p#card #{handDealer[i].rank} of #{handDealer[i].face}
+    div.score
+      h3 Score:
+      p#score #{scoreDealer}
+  br
+  div.player
+    div
+      h1 Player
+    div.hand
+      h3 Hand:
+      - for (let i = handPlayer.length - 1; i >= 0; i--)
+        p#card #{handPlayer[i].rank} of #{handPlayer[i].face}
+    div.score
+      h3 Score:
+      p#score #{scorePlayer}
+  div.result
+    h2(style='color:green;')#result #{result}
+  div.error
+    h2(style='color:red;') #{error}
+  br
+  div.hit
+    a(href='/hit')
+      button(disabled=isFinished)#hit Hit!
+  div.stick
+    a(href='/finish')
+      button(disabled=isFinished)#stick Stick!
+  div.deal
+    a(href='/start')
+      button(disabled=!isFinished)#deal Deal!
